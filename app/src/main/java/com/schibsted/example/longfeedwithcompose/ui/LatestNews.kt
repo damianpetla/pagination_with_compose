@@ -18,7 +18,7 @@ fun LatestNews(viewModel: NewsViewModel) {
     MaterialTheme {
         Scaffold(
             topBar = {
-                TopAppBar(title = { Text(text = "Apka testowa") })
+                TopAppBar(title = { Text(text = "Pagination with Compose") })
             },
             bodyContent = {
                 val state = viewModel.newsState.collectAsState()
