@@ -1,0 +1,2 @@
+rootProject.name = "LongFeedWithCompose"
+include ':app'
