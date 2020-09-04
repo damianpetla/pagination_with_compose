@@ -1,9 +1,7 @@
-package com.schibsted.example.longfeedwithcompose
+package com.schibsted.example.longfeedwithcompose.ui
 
 import com.schibsted.example.longfeedwithcompose.api.Article
 import com.schibsted.example.longfeedwithcompose.api.LatestNewsResponse
-import com.schibsted.example.longfeedwithcompose.ui.LatestData
-import com.schibsted.example.longfeedwithcompose.ui.NewsItem
 
 fun LatestNewsResponse.toData(currentArticles: List<NewsItem> = emptyList()) = LatestData(currentArticles + articles.flatten().map { it.toNewItem() } , links.next)
 

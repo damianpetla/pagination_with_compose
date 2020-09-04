@@ -20,7 +20,7 @@ import dev.chrisbanes.accompanist.coil.CoilImageWithCrossfade
 
 @Composable
 fun NewsCard(newsItem: NewsItem, onClick: () -> Unit) {
-    Card(modifier = Modifier.clickable(onClick = onClick)) {
+    Card(modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp).clickable(onClick = onClick)) {
         Column {
             val imageModifier = Modifier
                 .preferredHeight(180.dp)

@@ -3,7 +3,6 @@ package com.schibsted.example.longfeedwithcompose.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.schibsted.example.longfeedwithcompose.api.NewsService
-import com.schibsted.example.longfeedwithcompose.toData
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
