@@ -17,7 +17,7 @@ class NewsViewModel : ViewModel() {
     val newsState: StateFlow<LatestData> get() = _newsState
 
     private val newsService = Retrofit.Builder()
-        .baseUrl("https://omni-content.omni.news/")
+        .baseUrl("https://omni-content-stage.omni.news/")
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
         .create(NewsService::class.java)
@@ -32,7 +32,7 @@ class NewsViewModel : ViewModel() {
                 val response = newsService.getLatest()
                 _newsState.value = response.toData()
             } catch (ex: Exception) {
-                com.schibsted.example.longfeedwithcompose.error(ex)
+                error(ex)
             }
         }
     }
@@ -43,7 +43,7 @@ class NewsViewModel : ViewModel() {
                 val response = newsService.getMoreArticles(_newsState.value.next)
                 _newsState.value = response.toData(_newsState.value.articles)
             } catch (ex: Exception) {
-                com.schibsted.example.longfeedwithcompose.error(ex)
+                error(ex)
             }
         }
     }

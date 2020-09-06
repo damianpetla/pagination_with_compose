@@ -29,9 +29,9 @@ fun LatestNewsScreen(viewModel: NewsViewModel) {
 @Composable
 fun LatestNewsFeed(viewModel: NewsViewModel) {
     val state = viewModel.newsState.collectAsState()
-    val size = state.value.articles.size
+    val lastIndex = state.value.articles.lastIndex
     LazyColumnForIndexed(items = state.value.articles) { i, newsItem ->
-        if (size - 2 == i) {
+        if (lastIndex == i) {
             onActive {
                 viewModel.getMoreNews()
             }

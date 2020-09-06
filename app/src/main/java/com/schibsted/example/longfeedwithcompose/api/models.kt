@@ -8,10 +8,11 @@ data class LatestNewsResponse(val articles: List<List<Article>>, val links: Link
 
 @JsonClass(generateAdapter = true)
 data class Article(
-    val title: NewsTitle,
-    val category: Category,
-    val changes: Changes,
-    @Json(name = "main_resource") val mainResource: MainResource
+    val type: String,
+    val title: NewsTitle?,
+    val category: Category?,
+    val changes: Changes?,
+    @Json(name = "main_resource") val mainResource: MainResource?
 )
 
 @JsonClass(generateAdapter = true)
