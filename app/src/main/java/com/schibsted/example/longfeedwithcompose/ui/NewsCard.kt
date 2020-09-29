@@ -2,12 +2,12 @@ package com.schibsted.example.longfeedwithcompose.ui
 
 import androidx.compose.foundation.Box
 import androidx.compose.foundation.Text
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.darkColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,12 +32,16 @@ fun NewsCard(newsItem: NewsItem, onClick: () -> Unit) {
                     contentScale = ContentScale.Crop
                 )
                 if (newsItem.caption.isNotEmpty()) {
-                    Box(shape = RoundedCornerShape(4.dp), padding = 2.dp, modifier = Modifier.background(
-                        Color.White.copy(alpha = 0.8f)).gravity(
-                        Alignment.BottomEnd)) {
+                    Box(
+                        shape = RoundedCornerShape(8.dp),
+                        padding = 4.dp,
+                        backgroundColor = Color.White.copy(alpha = 0.8f),
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(4.dp)
+                    ) {
                         Text(text = newsItem.caption, style = MaterialTheme.typography.caption)
                     }
-
                 }
             }
 
@@ -55,9 +59,18 @@ fun NewsCard(newsItem: NewsItem, onClick: () -> Unit) {
 @Preview
 @Composable
 fun DefaultPreview() {
-    Column(Modifier.padding(16.dp)) {
+    NewsCard(newsItem = NewsItem("Title title title", "", "28-08-2020", "Category", "Mr. T")) {
+
+    }
+}
+
+@Preview
+@Composable
+fun DefaultDarkPreview() {
+    MaterialTheme(colors = darkColors(primary = Color.Blue)) {
         NewsCard(newsItem = NewsItem("Title title title", "", "28-08-2020", "Category", "Mr. T")) {
 
         }
     }
+
 }
