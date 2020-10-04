@@ -1,7 +1,7 @@
 package com.schibsted.example.longfeedwithcompose.ui
 
-import androidx.compose.foundation.Box
 import androidx.compose.foundation.Text
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -25,7 +25,7 @@ fun NewsCard(newsItem: NewsItem, onClick: () -> Unit) {
             val imageModifier = Modifier
                 .preferredHeight(180.dp)
                 .fillMaxWidth()
-            Stack {
+            Box {
                 CoilImageWithCrossfade(
                     data = newsItem.imageUrl,
                     modifier = imageModifier,
@@ -33,14 +33,12 @@ fun NewsCard(newsItem: NewsItem, onClick: () -> Unit) {
                 )
                 if (newsItem.caption.isNotEmpty()) {
                     Box(
-                        shape = RoundedCornerShape(8.dp),
-                        padding = 4.dp,
-                        backgroundColor = Color.White.copy(alpha = 0.8f),
                         modifier = Modifier
                             .align(Alignment.BottomEnd)
                             .padding(4.dp)
+                            .background(shape = RoundedCornerShape(8.dp), color = Color.White.copy(alpha = 0.8f))
                     ) {
-                        Text(text = newsItem.caption, style = MaterialTheme.typography.caption)
+                        Text(text = newsItem.caption, style = MaterialTheme.typography.caption, modifier = Modifier.padding(4.dp))
                     }
                 }
             }

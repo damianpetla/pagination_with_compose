@@ -2,6 +2,8 @@ package com.schibsted.example.longfeedwithcompose.ui
 
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.lazy.LazyColumnForIndexed
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
